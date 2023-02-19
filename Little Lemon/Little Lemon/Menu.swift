@@ -50,8 +50,40 @@ struct Menu: View {
                     TextField("Search menu", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
-                }
+                        .padding(.bottom, 10)
+                }.padding(.top, 20)
 
+            }
+            VStack(alignment: .leading) {
+                Text("ORDER FOR DELIVERY")
+                    .bold()
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding(.horizontal, 20)
+                ScrollView(.horizontal){
+                    HStack{
+                        Text("Starters")
+                            .frame(width: 88, height: 41)
+                            .background(Color(red: 0.929, green: 0.937, blue: 0.933))
+                            .cornerRadius(20)
+                            .foregroundColor(.black)
+                        Text("Mains")
+                            .frame(width: 72, height: 41)
+                            .background(Color(red: 0.929, green: 0.937, blue: 0.933))
+                            .cornerRadius(20)
+                            .foregroundColor(.black)
+                        Text("Desserts")
+                            .frame(width: 93, height: 41)
+                            .background(Color(red: 0.929, green: 0.937, blue: 0.933))
+                            .cornerRadius(20)
+                            .foregroundColor(.black)
+                        Text("Sides")
+                            .frame(width: 67, height: 41)
+                            .background(Color(red: 0.929, green: 0.937, blue: 0.933))
+                            .cornerRadius(20)
+                            .foregroundColor(.black)
+                    }.padding(.horizontal, 20)
+                }
             }
             NavigationView {
                 FetchedObjects(
