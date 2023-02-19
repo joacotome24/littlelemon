@@ -25,9 +25,43 @@ struct Onboarding: View {
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                Text("Register to Little Lemon").font(.title).bold()
-                Spacer().frame(height: 30)
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(Color(red: 73/255, green: 94/255, blue: 87/255))
+                        .padding(.top, 20)
+                    VStack(alignment: .leading) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Little Lemon")
+                                    .font(.largeTitle)
+                                    .foregroundColor(Color(red: 0.957, green: 0.808, blue: 0.078))
+                                    .fontWeight(.bold)
+                                    .padding(.horizontal, 20)
+                                
+                                Text("Chicago")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.regular)
+                                    .padding(.horizontal, 20)
+                                
+                                Spacer().frame(height: 15)
+                                Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
+                                    .font(.body)
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 20)
+                                    .padding(.bottom, 20)
+                            }
+                                
+                            Image("Hero image")
+                                .resizable()
+                                .cornerRadius(8)
+                                .padding(.top, 20)
+                                .frame(width: 130, height: 150)
+                        }.padding(.trailing, 20)
+                    }
+
+                }.frame(height:300)
+                Spacer().frame(height: 15)
                 NavigationLink(
                     destination: Home().navigationBarBackButtonHidden(true),
                     isActive: $isLoggedIn,
@@ -71,15 +105,14 @@ struct Onboarding: View {
                     }
                 }, label: {
                     Text("Register").bold()
-                        .frame(maxWidth: .infinity)
+                        .frame(width: 150)
                         .padding(.vertical, 12)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
+                        .background(Color(red: 0.957, green: 0.808, blue: 0.078))
+                        .cornerRadius(15)
+                        .foregroundColor(.black)
                 })
                 Spacer()
             }
-            .padding(.horizontal, 20)
             .alert(isPresented: $showAlert, content: {
                 Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             })

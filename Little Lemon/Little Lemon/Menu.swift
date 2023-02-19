@@ -14,22 +14,45 @@ struct Menu: View {
     
     var body: some View {
         VStack {
-            Text("Little Lemon")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Text("Chicago")
-                .font(.title)
-                .fontWeight(.medium)
-            
-            Text("Welcome to Little Lemon. Our menu is carefully crafted to satisfy your cravings and our chefs use only the freshest ingredients to prepare each dish. We hope you enjoy your dining experience with us!")
-                .font(.body)
-                .multilineTextAlignment(.center)
-                .padding()
-            TextField("Search menu", text: $searchText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding(.horizontal)
-            
+            ZStack {
+                Rectangle()
+                    .foregroundColor(Color(red: 73/255, green: 94/255, blue: 87/255))
+                    .padding(.top, 20)
+                VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Little Lemon")
+                                .font(.largeTitle)
+                                .foregroundColor(Color(red: 0.957, green: 0.808, blue: 0.078))
+                                .fontWeight(.bold)
+                                .padding(.horizontal, 20)
+                            
+                            Text("Chicago")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .fontWeight(.regular)
+                                .padding(.horizontal, 20)
+                            
+                            Spacer().frame(height: 15)
+                            Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
+                                .font(.body)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 20)
+                        }
+                            
+                        Image("Hero image")
+                            .resizable()
+                            .cornerRadius(8)
+                            .padding(.top, 20)
+                            .frame(width: 130, height: 150)
+                    }.padding(.trailing, 20)
+                    TextField("Search menu", text: $searchText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                }
+
+            }
             NavigationView {
                 FetchedObjects(
                     predicate:buildPredicate(),

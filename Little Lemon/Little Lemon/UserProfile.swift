@@ -16,6 +16,7 @@ struct UserProfile: View {
     
     var body: some View {
         VStack(spacing: 20) {
+            Spacer().frame(height: 30)
             Image("profile-image-placeholder")
                 .resizable()
                 .scaledToFit()
@@ -32,11 +33,12 @@ struct UserProfile: View {
                 self.presentation.wrappedValue.dismiss()
             }) {
                 Text("Logout")
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .foregroundColor(.white)
+                    .bold()
+                        .frame(width: 150)
+                        .padding(.vertical, 12)
+                        .background(Color(red: 0.957, green: 0.808, blue: 0.078))
+                        .cornerRadius(15)
+                        .foregroundColor(.black)
             }
         }
         .padding()

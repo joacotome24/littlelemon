@@ -15,12 +15,12 @@ struct DishDetail: View {
             AsyncImage(url: URL(string: dish.image ?? "")) { image in
                     image.resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 300, height: 300)
+                    .frame(width: 150, height: 150)
             
             } placeholder: {
                 Color.gray
             }
-            .frame(maxWidth: .infinity, maxHeight: 300)
+            .frame(maxWidth: .infinity, maxHeight: 250)
             .scaledToFit()
             .padding()
             
